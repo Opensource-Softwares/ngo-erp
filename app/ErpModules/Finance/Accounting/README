@@ -1,0 +1,2 @@
+It handles the ledger, payables, receivables, and assets.
+Everything else sits on top of it. It doesn't change much from a standard accounting package (Akaunting or AureusERP covers this well).

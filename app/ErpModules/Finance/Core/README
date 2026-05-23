@@ -1,0 +1,6 @@
+<!-- Trust Engine -->
+Trust engine is the most NGO-specific thing in the entire system.
+Its job is to receive incoming money and immediately partition it into fund pools before anything else can touch it. When you receive Ksh 5M from a donor, that amount becomes a liability in your ledger — not income.
+It only converts to income as you execute milestones and spend against it. This is called deferred revenue recognition, and it's a hard legal requirement from most institutional donors. The audit trail vault ties every expenditure back to a specific grant line.
+
+
