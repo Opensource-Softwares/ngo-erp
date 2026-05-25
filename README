@@ -1,0 +1,228 @@
+# ngo-erp
+
+> An ERP built for nonprofit and non-governmental organizations to streamline operations and fulfill their mission. Secular, adaptable, and modular.
+
+---
+
+## The Problem
+
+NGOs run the world's hardest work on the world's worst tools.
+
+The organizations doing the most critical work on the planet: fighting poverty, building leaders, educating communities, responding to crises some are operationally held together with Google Sheets, WhatsApp threads, and institutional memory stored in one person's head. When that person leaves, the organization bleeds. When the funder asks for a report, three people spend a week assembling it manually. When leadership wants to know what's happening across departments and chapters, they send emails and wait.
+
+This is not a small inconvenience. Fragmented, manual operations are a tax on mission. Every hour spent chasing data, reconciling spreadsheets, and managing disconnected tools is an hour not spent on the people you exist to serve.
+
+**NGO-ERP** is the ERP that NGOs were never built. Not a corporate ERP bolted onto nonprofit workflows.A purpose-built, fully integrated operational platform designed around how nonprofits and non-governmental organizations actually work from finance and donor management to project tracking, department coordination, and public communications — all in one system, all talking to each other.
+
+---
+
+## Who This Is For
+
+Any nonprofit or non-governmental organization that:
+
+- Receives funding from donors, grants, or multiple funding streams
+- Needs to track projects — internal, restricted, or public-facing
+- Publishes communications, reports, blogs, or newsletters
+- Manages multiple departments, programs, or chapters
+- Operates under a board and executive structure
+
+This platform is **secular and adaptable** — it makes no assumptions about your cause, your region, or your structure. Configure it to fit your organization, not the other way around.
+
+---
+
+## Modules
+
+### Finance & Accounting
+The financial backbone of the platform. Built on **GAAP as the primary standard**, with reporting templates that produce **IFRS** and **IPSAS** compliant output covering the full range of funding sources from local foundations to international bodies funders.
+
+- Fund-based accounting — restricted and unrestricted fund tracking.
+- Financial statements — balance sheet, income statement, cash flow. 
+- Budget management per program, department, and project.
+- Expense recording and approval workflows
+- GAAP-native with IFRS and IPSAS reporting output
+- Audit trail on every financial record
+- Payment gateway integration *(roadmap)*
+- **Cryptographic transaction hashing** — every transaction is hashed at the point of entry. Any attempt to manipulate the books after the fact breaks the hash chain and is immediately detectable *(roadmap)*
+
+### Donor Management
+Full donor lifecycle management — from first contact to long-term stewardship.
+
+- Donor registry and profile management
+- Invitation system via secure link
+- Gift and pledge tracking
+- Donation history and receipting
+- Communication history linked to each donor record
+- Donor portal access management
+- Directly linked to the finance module — no double entry
+
+### Grant Management
+Track every grant from application to close-out.
+
+- Grant application tracking
+- Awarded fund management with restriction tagging
+- Budget vs actuals per grant
+- Reporting deadlines and compliance tracking
+- Fund utilization visibility in real time
+
+### Project Management
+Plan, execute, and monitor projects with full visibility control.
+
+- Internal projects — visible only to assigned staff
+- Restricted projects — shared with specific people or departments
+- Public projects — visible to the outside world
+- Milestone and task management
+- Project budgets linked to finance
+- Progress tracking and outcome recording
+
+### Department Management
+Mirror your organization's actual structure inside the platform.
+
+- Department creation and configuration
+- Staff and role assignment per department
+- Department-level budgets and projects
+- Each department operates within its own scope while leadership sees everything
+
+### Communication & Publications
+A built-in content and communication platform so your organization's voice lives where your operations live.
+
+- Internal announcements and messaging
+- Public-facing blog and news publishing
+- Staff publications and public submissions
+- Subscription management for newsletters and releases
+- Content approval workflows
+- Supports both staff-only and public-contribution models
+
+### Human Resources & Volunteer Management
+Manage the people who make the mission possible.
+
+- Staff records, contracts, and roles
+- Volunteer onboarding and tracking
+- Time and attendance
+- Built for organizations where staff and volunteers operate side by side
+
+### Governance
+Reflects how NGOs are actually governed.
+
+- Executive Director / CEO level access and controls
+- Board of Directors management
+- Board meeting records and resolutions
+- Role-based access control across all modules — board sees what board needs to see, staff sees what staff needs to see, departments see their own scope
+
+### Reporting & Impact
+Stop building reports manually the week before a funder deadline.
+
+- Program outcome tracking
+- Impact dashboards
+- Funder report generation
+- Board report generation
+- Financial and operational data in one view
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Backend | Laravel |
+| Frontend | Livewire |
+| Primary Database | PostgreSQL *(strict — required)* |
+| Cache / Queue | Redis |
+| Document Storage | MongoDB / File-based / PostgreSQL |
+| Deployment | Self-hosted |
+
+**Database note:** PostgreSQL is the only supported primary database. There are no plans to support MySQL or SQLite for the core system. MongoDB and Redis are optional supporting layers for document storage and caching respectively.
+
+---
+
+## Architecture
+
+- **Single-tenant** — each organization runs and owns their own instance. Your data never touches another organization's deployment.
+- **Self-hostable** — deploy on your own server, your own infrastructure, your own terms.
+- **Modular** — enable the modules your organization needs. Disable what you don't.
+- **Role-based access control** — granular permissions from board level down to department staff.
+
+---
+
+## Accounting Standards Support
+
+| Standard | Support |
+|---|---|
+| GAAP | Native — core of the finance module |
+| IFRS | Reporting output templates |
+| IPSAS | Reporting output templates |
+
+The finance module is built on GAAP as the broadest common foundation. As accounting bodies update their specifications, the relevant modules will be updated to reflect those changes.
+
+---
+
+## Roadmap
+
+- [ ] Cryptographic transaction hashing for tamper-evident ledger
+- [ ] Payment gateway integrations
+- [ ] Mobile companion app
+- [ ] API for third-party integrations
+- [ ] Multi-language support
+- [ ] Advanced impact measurement framework
+
+---
+
+## Getting Started
+
+> Full installation and setup documentation is in progress. See [`docs/`](./docs) when available.
+
+### Requirements
+
+- PHP 8.2+
+- PostgreSQL 14+
+- Composer
+- Node.js & NPM
+- Redis *(optional but recommended)*
+
+### Basic Setup
+
+```bash
+git clone https://github.com/ngo-erp/ngo-erp.git
+cd ngo-erp
+composer install
+npm install && npm run build
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+php artisan serve
+```
+
+Full configuration guide coming in `docs/installation.md`.
+
+---
+
+## Contributing
+
+Contributions are welcome. Please read [`CONTRIBUTING.md`](./CONTRIBUTING.md) before opening a pull request.
+
+- Branch from `dev` — never from `main`
+- `main` is stable only
+- Follow the existing code style
+- Document what you build
+
+---
+
+## License
+
+ngo-erp is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+
+You are free to use, modify, and self-host this software. If you modify and distribute it — including running it as a hosted service — you must release your modifications under the same license and credit the original authors.
+
+**This software may not be resold or repackaged as a commercial product without explicit written permission from the original authors.**
+
+See [`LICENSE`](./LICENSE) for the full license text.
+
+---
+
+## Authors
+
+Built and maintained by the ngo-erp contributors.
+
+---
+
+*Built to give organizations doing real work the infrastructure they deserve.*
